@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-ARG ruby_version=2.6.3
+ARG ruby_version=2.7.5
 ARG ruby_build_version=20200520
 ARG bundler_version=2.3.12
 
