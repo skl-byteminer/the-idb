@@ -2,7 +2,7 @@ FROM debian:buster-slim
 
 ARG ruby_version=2.7.5
 ARG ruby_build_version=20200520
-ARG bundler_version=2.3.12
+#ARG bundler_version=2.3.12
 
 # just use a login shell.
 SHELL [ "/bin/bash", "-l", "-c" ]
@@ -21,7 +21,7 @@ ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERS
 RUN chmod +x /wait ; \
 # install ruby, skipping docs
     env RUBY_CONFIGURE_OPTS=--disable-install-doc ruby-build ${ruby_version} /usr/local ; \
-    gem install bundler -v ${bundler_version} ; \
+    gem install bundler ; \
 # install apache2 and passenger
     apt-get update && apt-get install -y apache2 apt-transport-https ca-certificates ; \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7 ; \
