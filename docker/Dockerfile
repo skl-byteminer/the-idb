@@ -39,8 +39,9 @@ WORKDIR /opt/idb
 USER idb
 COPY --chown=idb:idb . /opt/idb
 #old command --> RUN env RAILS_ENV=production bundle install --path=vendor/bundle
-RUN bundle config set --local path /opt/idb/vendor/bundle ; \
-    env RAILS_ENV=production bundle install
+RUN env RAILS_ENV=production ; \
+    bundle config set --local path /opt/idb/vendor/bundle ; \
+    bundle install
 #RUN mv docker/build/config config
 
 USER root
